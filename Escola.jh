@@ -1,0 +1,91 @@
+entity Pessoa {
+    id UUID
+    nome String required
+    dataNascimento LocalDate required
+    cpf String required
+    sexo Sexo required
+    tipoPessoa TipoPessoa required
+    dataCadastro ZonedDateTime
+    dataAtualizacao ZonedDateTime
+}
+entity Responsavel {
+    id UUID
+    nome String required
+    cpf String required
+    sexo Sexo required
+    parentesco String required
+    dataCadastro ZonedDateTime
+}
+entity Telefone {
+    id UUID
+    numero String required
+    whatsapp Boolean required
+}
+entity Endereco {
+    id UUID
+    logradouro String required
+    numero String required
+    complemento String required
+    bairro String required
+    cidade String required
+    estado String required
+    cep String required
+}
+entity Turma {
+    id UUID
+    nome String required
+    sexoTurma SexoTurma required
+    faixaEtaria FaixaEtaria required
+    dataInicio LocalDate required
+    dataFim LocalDate
+    dataCadastro ZonedDateTime
+}
+enum TipoPessoa {
+    ALUNO
+    PROFESSOR
+}
+enum Sexo {
+    MASCULINO
+    FEMININO
+}
+enum SexoTurma {
+    MASCULINO
+    FEMININO
+    UNISSEX
+}
+enum FaixaEtaria {
+    CRIANCA
+    JOVEM
+    PRE_ADOLESCENTE
+    ADOLESCENTE
+    ADULTO
+}
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+    Turma{alunos} to Pessoa
+    Pessoa{telefones} to Telefone
+    Responsavel{telefones} to Telefone
+}
+/**
+ * Many to many relationship.
+ */
+relationship ManyToMany {
+    Responsavel{enderecos} to Endereco{responsaveis}
+    Responsavel{alunos} to Pessoa{responsaveis}
+    Pessoa{enderecos} to Endereco{pessoas}
+}
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    Turma{professor} to Pessoa
+}
+/**
+ * Use pagination.
+ */
+paginate * with pagination
+dto * with mapstruct
+service all with serviceImpl
+filter *

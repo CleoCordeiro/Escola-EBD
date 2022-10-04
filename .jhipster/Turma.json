@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20221004133155",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "turma",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sexoTurma",
+      "fieldType": "SexoTurma",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MASCULINO,FEMININO,UNISSEX"
+    },
+    {
+      "fieldName": "faixaEtaria",
+      "fieldType": "FaixaEtaria",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CRIANCA,JOVEM,PRE_ADOLESCENTE,ADOLESCENTE,ADULTO"
+    },
+    {
+      "fieldName": "dataInicio",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataFim",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Turma",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "ownerSide": true,
+      "relationshipName": "professor",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "turma",
+      "relationshipName": "alunos",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

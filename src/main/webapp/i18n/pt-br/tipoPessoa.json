@@ -1,0 +1,9 @@
+{
+  "escolaEbdApp": {
+    "TipoPessoa": {
+      "null": "",
+      "ALUNO": "ALUNO",
+      "PROFESSOR": "PROFESSOR"
+    }
+  }
+}

@@ -48,6 +48,20 @@ public class CacheConfiguration {
             createCache(cm, br.com.cleo.escolaebd.domain.User.class.getName());
             createCache(cm, br.com.cleo.escolaebd.domain.Authority.class.getName());
             createCache(cm, br.com.cleo.escolaebd.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.com.cleo.escolaebd.domain.Pessoa.class.getName());
+            createCache(cm, br.com.cleo.escolaebd.domain.Pessoa.class.getName() + ".telefones");
+            createCache(cm, br.com.cleo.escolaebd.domain.Pessoa.class.getName() + ".enderecos");
+            createCache(cm, br.com.cleo.escolaebd.domain.Pessoa.class.getName() + ".responsaveis");
+            createCache(cm, br.com.cleo.escolaebd.domain.Responsavel.class.getName());
+            createCache(cm, br.com.cleo.escolaebd.domain.Responsavel.class.getName() + ".telefones");
+            createCache(cm, br.com.cleo.escolaebd.domain.Responsavel.class.getName() + ".enderecos");
+            createCache(cm, br.com.cleo.escolaebd.domain.Responsavel.class.getName() + ".alunos");
+            createCache(cm, br.com.cleo.escolaebd.domain.Telefone.class.getName());
+            createCache(cm, br.com.cleo.escolaebd.domain.Endereco.class.getName());
+            createCache(cm, br.com.cleo.escolaebd.domain.Endereco.class.getName() + ".responsaveis");
+            createCache(cm, br.com.cleo.escolaebd.domain.Endereco.class.getName() + ".pessoas");
+            createCache(cm, br.com.cleo.escolaebd.domain.Turma.class.getName());
+            createCache(cm, br.com.cleo.escolaebd.domain.Turma.class.getName() + ".alunos");
             // jhipster-needle-ehcache-add-entry
         };
     }

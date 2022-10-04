@@ -1,0 +1,82 @@
+{
+  "applications": "*",
+  "changelogDate": "20221004133151",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "pessoa",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "Sexo",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MASCULINO,FEMININO"
+    },
+    {
+      "fieldName": "tipoPessoa",
+      "fieldType": "TipoPessoa",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ALUNO,PROFESSOR"
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dataAtualizacao",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Pessoa",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "telefone",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "telefones",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "endereco",
+      "otherEntityRelationshipName": "pessoas",
+      "ownerSide": true,
+      "relationshipName": "enderecos",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "turma",
+      "otherEntityRelationshipName": "alunos",
+      "relationshipName": "turma",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "responsavel",
+      "otherEntityRelationshipName": "alunos",
+      "ownerSide": false,
+      "relationshipName": "responsaveis",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

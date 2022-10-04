@@ -1,0 +1,10 @@
+{
+  "escolaEbdApp": {
+    "SexoTurma": {
+      "null": "",
+      "MASCULINO": "MASCULINO",
+      "FEMININO": "FEMININO",
+      "UNISSEX": "UNISSEX"
+    }
+  }
+}

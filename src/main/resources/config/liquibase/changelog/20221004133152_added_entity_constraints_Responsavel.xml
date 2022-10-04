@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Responsavel.
+    -->
+    <changeSet id="20221004133152-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="responsavel_id"
+                                 baseTableName="rel_responsavel__enderecos"
+                                 constraintName="fk_rel_responsavel__enderecos__responsavel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="responsavel"/>
+
+        <addForeignKeyConstraint baseColumnNames="enderecos_id"
+                                 baseTableName="rel_responsavel__enderecos"
+                                 constraintName="fk_rel_responsavel__enderecos__enderecos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="endereco"/>
+
+        <addForeignKeyConstraint baseColumnNames="responsavel_id"
+                                 baseTableName="rel_responsavel__alunos"
+                                 constraintName="fk_rel_responsavel__alunos__responsavel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="responsavel"/>
+
+        <addForeignKeyConstraint baseColumnNames="alunos_id"
+                                 baseTableName="rel_responsavel__alunos"
+                                 constraintName="fk_rel_responsavel__alunos__alunos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa"/>
+    </changeSet>
+</databaseChangeLog>

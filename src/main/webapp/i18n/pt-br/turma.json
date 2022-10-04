@@ -1,0 +1,31 @@
+{
+  "escolaEbdApp": {
+    "turma": {
+      "home": {
+        "title": "Turmas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Turma",
+        "createOrEditLabel": "Criar ou editar Turma",
+        "notFound": "Nenhum Turma encontrado"
+      },
+      "created": "Um novo Turma foi criado com o identificador {{ param }}",
+      "updated": "Um Turma foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Turma foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Turma {{ id }}?"
+      },
+      "detail": {
+        "title": "Turma"
+      },
+      "id": "Id",
+      "nome": "Nome",
+      "sexoTurma": "Sexo Turma",
+      "faixaEtaria": "Faixa Etaria",
+      "dataInicio": "Data Inicio",
+      "dataFim": "Data Fim",
+      "dataCadastro": "Data Cadastro",
+      "professor": "Professor",
+      "alunos": "Alunos"
+    }
+  }
+}

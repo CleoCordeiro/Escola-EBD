@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20221004133153",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "telefone",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "whatsapp",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Telefone",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "telefones",
+      "relationshipName": "pessoa",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "responsavel",
+      "otherEntityRelationshipName": "telefones",
+      "relationshipName": "responsavel",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

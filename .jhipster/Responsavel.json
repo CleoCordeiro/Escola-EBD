@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20221004133152",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "responsavel",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "Sexo",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MASCULINO,FEMININO"
+    },
+    {
+      "fieldName": "parentesco",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Responsavel",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "telefone",
+      "otherEntityRelationshipName": "responsavel",
+      "relationshipName": "telefones",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "endereco",
+      "otherEntityRelationshipName": "responsaveis",
+      "ownerSide": true,
+      "relationshipName": "enderecos",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "responsaveis",
+      "ownerSide": true,
+      "relationshipName": "alunos",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

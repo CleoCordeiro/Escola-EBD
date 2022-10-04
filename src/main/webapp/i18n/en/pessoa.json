@@ -1,0 +1,34 @@
+{
+  "escolaEbdApp": {
+    "pessoa": {
+      "home": {
+        "title": "Pessoas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Pessoa",
+        "createOrEditLabel": "Create or edit a Pessoa",
+        "notFound": "No Pessoas found"
+      },
+      "created": "A new Pessoa is created with identifier {{ param }}",
+      "updated": "A Pessoa is updated with identifier {{ param }}",
+      "deleted": "A Pessoa is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pessoa {{ id }}?"
+      },
+      "detail": {
+        "title": "Pessoa"
+      },
+      "id": "Id",
+      "nome": "Nome",
+      "dataNascimento": "Data Nascimento",
+      "cpf": "Cpf",
+      "sexo": "Sexo",
+      "tipoPessoa": "Tipo Pessoa",
+      "dataCadastro": "Data Cadastro",
+      "dataAtualizacao": "Data Atualizacao",
+      "telefones": "Telefones",
+      "enderecos": "Enderecos",
+      "turma": "Turma",
+      "responsaveis": "Responsaveis"
+    }
+  }
+}

@@ -2,9 +2,11 @@ package br.com.cleo.escolaebd.domain;
 
 import br.com.cleo.escolaebd.domain.enumeration.Sexo;
 import br.com.cleo.escolaebd.domain.enumeration.TipoPessoa;
+import br.com.cleo.escolaebd.web.rest.errors.BadRequestAlertException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -248,8 +250,24 @@ public class Pessoa implements Serializable {
         return this.turma;
     }
 
+    // Como um aluno
+    // Quero ser matriculado em uma turma
+    // Para que eu possa participar das aulas
+    // Pessoas do tipo aluno só podem ser matriculadas em turmas que estejam dentro
+    // da sua faixa etária
     public void setTurma(Turma turma) {
-        this.turma = turma;
+        if (turma != null) {
+            if (TipoPessoa.ALUNO.equals(this.getTipoPessoa())) {
+                int Age = Period.between(this.getDataNascimento(), LocalDate.now()).getYears();
+                if (Age >= turma.getFaixaEtaria().getIdadeMinima() && Age <= turma.getFaixaEtaria().getIdadeMaxima()) {
+                    this.turma = turma;
+                } else {
+                    throw new RuntimeException("A idade do aluno não está dentro da faixa etária da turma");
+                }
+            }
+        } else {
+            this.turma = turma;
+        }
     }
 
     public Pessoa turma(Turma turma) {
@@ -288,7 +306,8 @@ public class Pessoa implements Serializable {
         return this;
     }
 
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+    // setters here
 
     @Override
     public boolean equals(Object o) {
@@ -303,7 +322,8 @@ public class Pessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+        // see
+        // https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
         return getClass().hashCode();
     }
 
@@ -311,14 +331,14 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "Pessoa{" +
-            "id=" + getId() +
-            ", nome='" + getNome() + "'" +
-            ", dataNascimento='" + getDataNascimento() + "'" +
-            ", cpf='" + getCpf() + "'" +
-            ", sexo='" + getSexo() + "'" +
-            ", tipoPessoa='" + getTipoPessoa() + "'" +
-            ", dataCadastro='" + getDataCadastro() + "'" +
-            ", dataAtualizacao='" + getDataAtualizacao() + "'" +
-            "}";
+                "id=" + getId() +
+                ", nome='" + getNome() + "'" +
+                ", dataNascimento='" + getDataNascimento() + "'" +
+                ", cpf='" + getCpf() + "'" +
+                ", sexo='" + getSexo() + "'" +
+                ", tipoPessoa='" + getTipoPessoa() + "'" +
+                ", dataCadastro='" + getDataCadastro() + "'" +
+                ", dataAtualizacao='" + getDataAtualizacao() + "'" +
+                "}";
     }
 }

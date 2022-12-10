@@ -302,6 +302,12 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+
+      <dependency>
+        <groupId>org.projectnessie</groupId>
+        <artifactId>nessie-versioned-persist-bench</artifactId>
+        <version>0.45.0</version>
+      </dependency>
     </dependencies>
 
     <build>
